@@ -276,6 +276,27 @@ nav ul li {
   border: 2px solid var(--primary-color);
   cursor: pointer;
 }
+
+/* Mobile responsiveness */
+@media screen and (max-width: 720px) {
+  .contact-form-container {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .input-field,
+  textarea {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 8rem;
+  }
+
+  .submit-btn {
+    margin-top: 1rem;
+  }
+}
 /* Contacts section ends */
 
 /* Social buttons */
