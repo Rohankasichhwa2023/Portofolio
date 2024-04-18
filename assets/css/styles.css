@@ -1,33 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
-
-/* Variables */
-:root {
-  --font-family: "Roboto", sans-serf;
-  --normal-font: 400;
-  --bold-font: 700;
-  --bolder-font: 900;
-  --bg-color: #fcfcfc;
-  --primary-color: #4756df;
-  --secondary-color: #ff7235;
-  --primary-shadow: #8b8eaf;
-  --secondary-shadow: #a17a69;
-  --bottom-margin: 0.5rem;
-  --bottom-margin-2: 1rem;
-  --line-height: 1.7rem;
-  --transition: 0.3s;
-}
-/* Variables end */
-
-html {
-  scroll-behavior: smooth;
-}
-
 /* CSS Resets */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 2px solid red; */
 }
 
 ul {
@@ -36,23 +11,17 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
-}
-
-a:hover {
-  color: var(--secondary-color);
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: "Roboto", sans-serif;
 }
 
-section {
-  /* max-width: 1100px;
-  margin: auto; */
+/* Variables */
+:root {
+  --primary-color: #4756df;
+  --secondary-color: #ff7235;
 }
-
-/* CSS Resets end */
 
 /* Navbar */
 nav {
@@ -64,7 +33,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 3.5rem;
-  background-color: var(--bg-color);
+  background-color: #fcfcfc;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -74,8 +43,8 @@ nav h1 {
 
 nav a {
   color: var(--primary-color);
-  transition: var(--transition);
 }
+
 nav a:hover {
   color: var(--secondary-color);
   border-bottom: 2px solid var(--secondary-color);
@@ -87,7 +56,7 @@ nav ul {
 }
 
 nav ul li {
-  font-weight: var(--bold-font);
+  font-weight: 700;
 }
 
 .burger-menu {
@@ -98,56 +67,44 @@ nav ul li {
   cursor: pointer;
   display: none;
 }
-/* Navbar ends */
 
 /* Hero section */
 .hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 5.5rem;
-  max-width: 68.75rem;
-  margin: auto;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
-/* .hero img {
-  height: 37.5rem;
-  width: 37.5rem;
-} */
+.hero-img {
+  max-width: 100%;
+  border-radius: 50%;
+}
 
 .bio {
-  width: 25rem;
-  padding: 0.625rem;
+  width: 100%;
+  max-width: 30rem;
+  padding: 1rem;
   border-radius: 6px;
   box-shadow: 0px 2px 15px 2px var(--primary-shadow);
 }
 
-.bio h1 {
-  margin-bottom: var(--bottom-margin);
-}
-
-.bio p {
-  line-height: var(--line-height);
-  padding: 0.3rem 0;
-}
-/* Hero section ends */
-
 /* More about */
 .more-about {
-  background-color: var(--bg-color);
+  background-color: #fcfcfc;
   padding: 1rem 6rem;
 }
 
 .more-about h2 {
-  margin-bottom: var(--bottom-margin);
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .more-about p {
-  line-height: var(--line-height);
+  line-height: 1.7rem;
   padding: 0.4rem;
 }
-/* More about ends */
 
 /* Skills section */
 .skills {
@@ -169,18 +126,12 @@ nav ul li {
   width: 11.875rem;
   height: 11.25rem;
 }
-/* Skills section ends */
 
 /* Projects section */
 .projects {
-  background-color: var(--bg-color);
+  background-color: #fcfcfc;
   padding: 32px 0;
   margin-top: 2rem;
-}
-
-.project-pic {
-  width: 65%;
-  height: 60%;
 }
 
 .projects-container {
@@ -200,20 +151,6 @@ nav ul li {
   padding: 1rem;
 }
 
-.project-container p {
-  padding: 0.4rem;
-}
-
-.project-title {
-  margin-bottom: var(--bottom-margin);
-}
-
-.project-details {
-  margin-bottom: var(--bottom-margin);
-}
-
-/* Projects section ends */
-
 /* Contacts section */
 .contact {
   margin-top: 2rem;
@@ -221,7 +158,7 @@ nav ul li {
 
 .contact h2 {
   text-align: center;
-  margin-bottom: var(--bottom-margin-2);
+  margin-bottom: 1rem;
 }
 
 .contact-form-container {
@@ -234,7 +171,7 @@ nav ul li {
 
 .contact-form-container label {
   line-height: 2.7em;
-  font-weight: var(--bold-font);
+  font-weight: 700;
   color: var(--primary-color);
 }
 
@@ -267,8 +204,7 @@ nav ul li {
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   font-size: 1rem;
-  font-weight: var(--bold-font);
-  transition: var(--transition);
+  font-weight: 700;
 }
 
 .submit-btn:hover {
@@ -276,28 +212,6 @@ nav ul li {
   border: 2px solid var(--primary-color);
   cursor: pointer;
 }
-
-/* Mobile responsiveness */
-@media screen and (max-width: 720px) {
-  .contact-form-container {
-    max-width: 90%;
-    padding: 1rem;
-  }
-
-  .input-field,
-  textarea {
-    width: 100%;
-  }
-
-  textarea {
-    min-height: 8rem;
-  }
-
-  .submit-btn {
-    margin-top: 1rem;
-  }
-}
-/* Contacts section ends */
 
 /* Social buttons */
 .socials {
@@ -312,7 +226,6 @@ nav ul li {
   width: 3rem;
   height: 3rem;
 }
-/* Social button ends */
 
 /* Scroll to top button */
 .scroll-up {
@@ -326,33 +239,6 @@ nav ul li {
   width: 3rem;
   height: 3rem;
 }
-/* Scroll to top button ends */
-
-/* Footer section */
-footer {
-  background-color: var(--bg-color);
-  padding: 1.25rem;
-  text-align: center;
-  margin: 2rem 0 0;
-}
-/* Footer section ends */
-
-/* General (utilities) */
-.icon-card {
-  background-color: #fff;
-  border-radius: 11px;
-  box-shadow: 0 3px 10px var(--secondary-shadow);
-  padding: 20px;
-  margin: 10px;
-}
-
-.project-card {
-  background-color: #fff;
-  border-radius: 11px;
-  box-shadow: 0 3px 10px var(--primary-shadow);
-  padding: 20px;
-  margin: 10px;
-}
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 720px) {
@@ -361,7 +247,7 @@ footer {
   }
   nav ul {
     position: fixed;
-    background-color: var(--bg-color);
+    background-color: #fcfcfc;
     flex-direction: column;
     top: 86px;
     left: 10%;
@@ -383,42 +269,21 @@ footer {
     transform: translateX(0);
   }
 
-  .hero {
-    margin-top: -4rem;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .hero img {
-    height: 37.5rem;
-    width: 30rem;
+  .hero-img {
+    max-width: 20rem;
   }
 
   .bio {
-    margin-top: -7rem;
-    width: 20.5rem;
+    max-width: 25rem;
   }
 
   .more-about {
-    margin-top: 2rem;
     padding: 1rem 3.5rem;
   }
 
-  .more-about h2 {
-    text-align: center;
-  }
-
-  .more-about p {
-    text-align: justify;
-  }
-
-  .icon {
+  .skills-wrapper img {
     width: 5.875rem;
     height: 5.25rem;
-  }
-
-  .projects-container {
-    flex-direction: column;
   }
 
   .project-container {
@@ -431,13 +296,12 @@ footer {
 }
 
 @media screen and (max-width: 420px) {
-  .hero img {
-    height: 37.5rem;
-    width: 23rem;
+  .hero-img {
+    max-width: 15rem;
   }
 
   .bio {
-    width: 18.3rem;
+    max-width: 18.3rem;
   }
 
   .project-container {
@@ -446,5 +310,11 @@ footer {
 
   .contact-form-container {
     max-width: 17.75rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hero-img {
+    max-width: 12rem;
   }
 }
