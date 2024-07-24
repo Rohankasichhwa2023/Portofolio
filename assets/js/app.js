@@ -31,17 +31,71 @@ scrollUp.addEventListener("click", () => {
 });
 
 function typeKasichhwa(word, elementId) {
-    var i = 0;
-    return setInterval(function() {
-      document.getElementById(elementId).textContent += word[i];
-      i = (i + 1) % word.length;
-      if (i === 0) {
-        document.getElementById(elementId).textContent = ""; // Clear the typed word
-      }
-    }, 400); // Adjust typing speed here (milliseconds)
-  }
+  var i = 0;
+  return setInterval(function () {
+    document.getElementById(elementId).textContent += word[i];
+    i = (i + 1) % word.length;
+    if (i === 0) {
+      document.getElementById(elementId).textContent = ""; // Clear the typed word
+    }
+  }, 400); // Adjust typing speed here (milliseconds)
+}
 
-  // Typing 'Kasichhwa' word by word
-  window.onload = function() {
-    typeKasichhwa("Kasichhwa ", "typing");
-  };
+// Typing 'Kasichhwa' word by word
+window.onload = function () {
+  typeKasichhwa("Kasichhwa ", "typing");
+  loadGitHubProjects();
+};
+
+function loadGitHubProjects() {
+  fetch("https://api.github.com/users/Rohankasichhwa2023/repos")
+    .then((response) => response.json())
+    .then((repos) => {
+      const projectsContainer = document.getElementById("projects-container");
+      repos.forEach((repo) => {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+
+        const projectName = document.createElement("h3");
+        projectName.textContent = repo.name;
+
+        const projectDescription = document.createElement("p");
+        projectDescription.textContent =
+          repo.description || "No description provided.";
+
+        const projectLink = document.createElement("a");
+        projectLink.href = repo.html_url;
+        projectLink.target = "_blank";
+        projectLink.textContent = "View on GitHub";
+
+        projectCard.appendChild(projectName);
+
+        projectCard.appendChild(projectDescription);
+        projectCard.appendChild(projectLink);
+        projectsContainer.appendChild(projectCard);
+      });
+    })
+    .catch((error) => console.error("Error fetching GitHub repos:", error));
+}
+
+const themeToggle = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  if (currentTheme === "dark") {
+    themeToggle.querySelector("ion-icon").setAttribute("name", "sunny-outline");
+  }
+}
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  themeToggle
+    .querySelector("ion-icon")
+    .setAttribute(
+      "name",
+      newTheme === "dark" ? "sunny-outline" : "moon-outline"
+    );
+});
