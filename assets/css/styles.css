@@ -226,61 +226,57 @@ section {
 }
 
 /* Default project card styles */
-/* Project card styles */
+
 .project-card {
-  background: var(--primary-color);
-  color: white;
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   padding: 1.5rem;
   border-radius: 0.5rem;
   flex: 1 1 calc(33.333% - 2rem);
   max-width: 250px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* Ensures equal spacing */
   align-items: center;
-  /* Center aligns all items */
   gap: 1rem;
-  /* Adds spacing between rows */
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project-card h3,
-.project-card p,
-.project-card a {
-  margin: 0;
-  width: 100%;
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  border-color: var(--secondary-color);
 }
 
 .project-card h3 {
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid white;
-  /* Add a line below the project name */
+  margin: 0;
+  padding-bottom: 0.5rem;
+  font-size: 1.25rem;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .project-card p {
-  margin-bottom: 1rem;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .project-card a {
   display: inline-block;
-  color: white;
-  text-decoration: none;
-  border: 1px solid white;
   padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
   border-radius: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
   transition: background 0.3s, color 0.3s;
 }
 
 .project-card a:hover {
-  background: white;
-  color: var(--primary-color);
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
 }
 
 /* Contacts section */

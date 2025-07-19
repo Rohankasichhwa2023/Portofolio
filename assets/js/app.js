@@ -52,31 +52,33 @@ function loadGitHubProjects() {
     .then((response) => response.json())
     .then((repos) => {
       const projectsContainer = document.getElementById("projects-container");
-      repos.forEach((repo) => {
-        const projectCard = document.createElement("div");
-        projectCard.classList.add("project-card");
 
-        const projectName = document.createElement("h3");
-        projectName.textContent = repo.name;
+      // Sort repos by updated_at desc (newest first)
+      repos
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .forEach((repo) => {
+          const projectCard = document.createElement("div");
+          projectCard.classList.add("project-card");
 
-        const projectDescription = document.createElement("p");
-        projectDescription.textContent =
-          repo.description || "No description provided.";
+          const projectName = document.createElement("h3");
+          projectName.textContent = repo.name;
 
-        const projectLink = document.createElement("a");
-        projectLink.href = repo.html_url;
-        projectLink.target = "_blank";
-        projectLink.textContent = "View on GitHub";
+          const projectDescription = document.createElement("p");
+          projectDescription.textContent =
+            repo.description || "No description provided.";
 
-        projectCard.appendChild(projectName);
+          const projectLink = document.createElement("a");
+          projectLink.href = repo.html_url;
+          projectLink.target = "_blank";
+          projectLink.textContent = "View on GitHub";
 
-        projectCard.appendChild(projectDescription);
-        projectCard.appendChild(projectLink);
-        projectsContainer.appendChild(projectCard);
-      });
+          projectCard.append(projectName, projectDescription, projectLink);
+          projectsContainer.appendChild(projectCard);
+        });
     })
     .catch((error) => console.error("Error fetching GitHub repos:", error));
 }
+
 
 const themeToggle = document.getElementById("theme-toggle");
 const currentTheme = localStorage.getItem("theme");
