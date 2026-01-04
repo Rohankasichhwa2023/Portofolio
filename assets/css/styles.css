@@ -185,22 +185,100 @@ section {
 /* Skills section */
 .skills {
   max-width: 68.75rem;
+  /* same as other sections */
   margin: auto;
   text-align: center;
   margin-top: 2.5rem;
 }
 
-.skill-header {
-  margin-bottom: 1rem;
+/* Skills wrapper - 2 cards per row */
+.skills-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 cards per row */
+  gap: 2rem;
+  max-width: 68.75rem;
+  margin: auto;
 }
 
-.skills-wrapper img {
-  padding: 1.25rem;
+/* Individual Skill Card */
+.skill-card {
+  display: flex;
+  /* split into left and right */
+  background-color: #fff;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  padding: 1rem 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  align-items: center;
+  gap: 1rem;
 }
 
-.icon {
-  width: 11.875rem;
-  height: 11.25rem;
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  border-color: var(--secondary-color);
+}
+
+/* Left side - logo + name */
+.skill-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  /* fixed width for left side */
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Right side - skill description */
+.skill-right {
+  flex: 1;
+  /* take remaining space */
+  text-align: left;
+}
+
+.skill-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 720px) {
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+    /* stack cards on small screens */
+  }
+
+  .skill-card {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .skill-card {
+    flex-direction: column;
+    /* stack logo above details for very small screens */
+    text-align: center;
+  }
+
+  .skill-right {
+    text-align: center;
+  }
 }
 
 /* Projects section */
@@ -343,6 +421,95 @@ section {
   border: 2px solid var(--primary-color);
   color: #fff;
   cursor: pointer;
+}
+
+/* =========================
+   Education Section
+   ========================= */
+
+.education {
+  max-width: 68.75rem;
+  margin: auto;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.education-title {
+  margin-bottom: 1.5rem;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Education Card */
+.education-card {
+  position: relative;
+  background-color: #fff;
+  border-left: 5px solid var(--primary-color);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px var(--shadow-color);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.education-card .degree {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+}
+
+.education-card .institution {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.education-card .duration {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Logo positioning */
+.education-logo {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+}
+
+.education-logo img {
+  width: 85px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.education-card:hover .education-logo img {
+  opacity: 1;
+}
+
+@media screen and (max-width: 720px) {
+  .education-card {
+    padding: 1.3rem;
+  }
+
+  .education-logo {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .education-logo img {
+    width: 70px;
+  }
 }
 
 /* Social buttons */
@@ -495,4 +662,18 @@ section {
   .hero-img {
     max-width: 12rem;
   }
+}
+
+/* Project Thumbnail */
+.project-thumbnail {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  border: 1px solid var(--shadow-color);
+}
+
+/* Spacing adjustment */
+.project-card h3 {
+  margin-top: 0.8rem;
 }

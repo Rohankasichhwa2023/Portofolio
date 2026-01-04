@@ -52,13 +52,26 @@ function loadGitHubProjects() {
     .then((response) => response.json())
     .then((repos) => {
       const projectsContainer = document.getElementById("projects-container");
+      projectsContainer.innerHTML = "";
 
-      // Sort repos by updated_at desc (newest first)
       repos
         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
         .forEach((repo) => {
           const projectCard = document.createElement("div");
           projectCard.classList.add("project-card");
+
+          /* Thumbnail */
+          const thumbnail = document.createElement("img");
+          thumbnail.classList.add("project-thumbnail");
+
+          // Image naming rule: repo-name.png
+          thumbnail.src = `assets/projects/${repo.name}.png`;
+          thumbnail.alt = `${repo.name} screenshot`;
+
+          // Fallback image if screenshot not found
+          thumbnail.onerror = function () {
+            this.src = "assets/projects/placeholder.png";
+          };
 
           const projectName = document.createElement("h3");
           projectName.textContent = repo.name;
@@ -72,12 +85,21 @@ function loadGitHubProjects() {
           projectLink.target = "_blank";
           projectLink.textContent = "View on GitHub";
 
-          projectCard.append(projectName, projectDescription, projectLink);
+          projectCard.append(
+            thumbnail,
+            projectName,
+            projectDescription,
+            projectLink
+          );
+
           projectsContainer.appendChild(projectCard);
         });
     })
-    .catch((error) => console.error("Error fetching GitHub repos:", error));
+    .catch((error) =>
+      console.error("Error fetching GitHub repos:", error)
+    );
 }
+
 
 
 const themeToggle = document.getElementById("theme-toggle");
