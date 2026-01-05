@@ -191,6 +191,10 @@ section {
   margin-top: 2.5rem;
 }
 
+.skills-title {
+  margin-bottom: 1.5rem;
+}
+
 /* Skills wrapper - 2 cards per row */
 .skills-wrapper {
   display: grid;
@@ -417,9 +421,6 @@ section {
 }
 
 .submit-btn:hover {
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  color: #fff;
   cursor: pointer;
 }
 
