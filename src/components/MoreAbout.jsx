@@ -15,7 +15,7 @@ export default function MoreAbout() {
             <p>
                 My machine learning work includes projects such as stock market prediction and loan approval prediction, where I
                 focused on data preprocessing, model training, and evaluation. On the web development side, I have built several
-                complete applications, including <b>Best-Reads</b>, an e-commerce bookstore developed with Django and React
+                complete applications, including <b>Best-Reads</b>, an e-commerce bookstore developed with Django and React.
                 <b>Stock-Pal</b>, a web-based stock market analysis and prediction platform that integrates machine learning
                 models
                 into a full-stack application and <b>Recipe-Book</b>, a recipe-based social media system built using PHP and
