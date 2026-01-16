@@ -495,7 +495,7 @@ section {
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 700;
-  transition: var(--transition);
+  color: var(--primary-color);
 }
 
 .submit-btn:hover {
